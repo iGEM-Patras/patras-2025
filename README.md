@@ -174,4 +174,15 @@ should be read as design-stage predictions.
 
 ## Licence
 
-See the licence file of the parent project.
+Software (`biomarker_analysis/`, `kinetic_models/`) is released under the **MIT
+licence**; data and results (`data/`, `results/`) under **CC BY 4.0**, matching the
+licence of the associated article. Files derived from GEO series GSE134358 remain
+subject to the terms of that original deposit and should be cited alongside this
+repository. See `LICENSE` for the full text.
+
+## Citation
+
+`CITATION.cff` carries the machine-readable citation metadata; GitHub renders a
+"Cite this repository" button from it. Once the associated article is published,
+add it there as a `preferred-citation` so that citers are pointed at the article
+as well as at this deposit.

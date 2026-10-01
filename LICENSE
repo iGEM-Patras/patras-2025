@@ -1,0 +1,59 @@
+This repository contains both software and data, which are licensed separately.
+
+================================================================================
+SOFTWARE — MIT License
+================================================================================
+
+Applies to all source code in this repository, specifically the contents of
+`biomarker_analysis/` and `kinetic_models/`.
+
+Copyright (c) 2025 iGEM Patras 2025 (team Aechmi), University of Patras
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+DATA AND RESULTS — Creative Commons Attribution 4.0 International (CC BY 4.0)
+================================================================================
+
+Applies to the contents of `data/` and `results/`: the processed expression
+matrix, the curated biomarker list, the sample annotation tables, and all
+generated figures and result tables.
+
+https://creativecommons.org/licenses/by/4.0/
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the licence, and
+indicate if changes were made.
+
+This matches the licence of the associated article, so a reader reusing a
+figure obtains it under the same terms whether it comes from the article or
+from this repository.
+
+================================================================================
+THIRD-PARTY DATA
+================================================================================
+
+`data/pruned_preprocessed_data.xlsx` and `data/GSE134358_age_sex_by_sample.tsv`
+are DERIVED from NCBI GEO series GSE134358, which is third-party data and is
+not covered by the licences above. The terms of the original GEO deposit apply
+to that underlying data. Anyone reusing these files should cite the original
+study alongside this repository.
+
+The platform annotation GPL21572 and the raw series matrix are not redistributed
+here; `biomarker_analysis/download_geo_data.py` retrieves them from NCBI.

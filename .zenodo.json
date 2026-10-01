@@ -1,0 +1,42 @@
+{
+  "title": "Biomarker analysis and kinetic simulations for a CRISPR/Cas13a-CHA sepsis biosensing system",
+  "upload_type": "software",
+  "description": "<p>Code, inputs and results reproducing the computational analyses of the CRISPR/Cas13a-CHA sepsis biosensor described in the associated article.</p><p>Two independent analyses are covered: (1) selection of the hsa-miR-150-5p / hsa-miR-486-5p biomarker pair from NCBI GEO series GSE134358, with leak-free cross-validation and nested cross-validation for hyper-parameter search; (2) kinetic modelling of the catalytic hairpin assembly circuit, comprising the rate-constant calculations, the strand-displacement ODE model, and the coupled Cas13a-CHA model behind manuscript Figure 7.</p><p>The repository includes a download script for the GEO inputs, so the preprocessing chain runs end to end from the public data. Software is released under the MIT licence; the data and result files under CC BY 4.0. Files derived from GEO series GSE134358 remain subject to the terms of that original deposit. See the LICENSE file for details.</p>",
+  "license": "MIT",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "sepsis",
+    "microRNA",
+    "CRISPR-Cas13a",
+    "catalytic hairpin assembly",
+    "biomarker selection",
+    "machine learning",
+    "ODE model",
+    "reproducibility",
+    "iGEM"
+  ],
+  "creators": [
+    { "name": "Panteleon, Despina", "affiliation": "Department of Pharmacy, University of Patras, Patras 26504, Greece" },
+    { "name": "Kerpinioti, Maria-Nikolina", "affiliation": "Department of Biology, University of Patras, Patras 26504, Greece" },
+    { "name": "Pierrakea, Irene", "affiliation": "Department of Biology, University of Patras, Patras 26504, Greece" },
+    { "name": "Pauli, Maria Electra", "affiliation": "Department of Biology, University of Patras, Patras 26504, Greece" },
+    { "name": "Giannopoulos, Spiros", "affiliation": "Department of Biology, University of Patras, Patras 26504, Greece" },
+    { "name": "Zormpa Sfaellou, Nefeli", "affiliation": "Department of Biology, University of Patras, Patras 26504, Greece" },
+    { "name": "Anastasopoulos, Konstantinos", "affiliation": "Department of Computer Engineering and Informatics, University of Patras, Patras 26504, Greece" },
+    { "name": "Katsaros, Andreas", "affiliation": "Department of Computer Engineering and Informatics, University of Patras, Patras 26504, Greece" },
+    { "name": "Tzortzakis, Grigoris", "affiliation": "Department of Computer Engineering and Informatics, University of Patras, Patras 26504, Greece" },
+    { "name": "Xydi, Myrto", "affiliation": "Department of Biology, University of Patras, Patras 26504, Greece" },
+    { "name": "Karamperis, Kariofyllis", "affiliation": "Department of Pharmacy, University of Patras, Patras 26504, Greece" },
+    { "name": "Patrinos, George P.", "affiliation": "Department of Pharmacy, University of Patras, Patras 26504, Greece" },
+    { "name": "Lagoumintzis, George", "affiliation": "Department of Pharmacy, University of Patras, Patras 26504, Greece" }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE134358",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset",
+      "scheme": "url"
+    }
+  ]
+}

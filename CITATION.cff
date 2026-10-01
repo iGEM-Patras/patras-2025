@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite this deposit."
+title: "Biomarker analysis and kinetic simulations for a CRISPR/Cas13a-CHA sepsis biosensing system"
+abstract: >-
+  Code, inputs and results reproducing the computational analyses of the
+  CRISPR/Cas13a-CHA sepsis biosensor: selection of the hsa-miR-150-5p /
+  hsa-miR-486-5p biomarker pair from GEO series GSE134358 with leak-free
+  cross-validation, and the kinetic models of the catalytic hairpin assembly
+  circuit.
+type: software
+version: 1.0.0
+# Set this to the date you actually tag the release.
+date-released: 2026-10-01
+license: MIT
+keywords:
+  - sepsis
+  - microRNA
+  - CRISPR-Cas13a
+  - catalytic hairpin assembly
+  - biomarker selection
+  - reproducibility
+authors:
+  - given-names: Despina
+    family-names: Panteleon
+    affiliation: "Department of Pharmacy, University of Patras, Patras 26504, Greece"
+  - given-names: Maria-Nikolina
+    family-names: Kerpinioti
+    affiliation: "Department of Biology, University of Patras, Patras 26504, Greece"
+  - given-names: Irene
+    family-names: Pierrakea
+    affiliation: "Department of Biology, University of Patras, Patras 26504, Greece"
+  - given-names: "Maria Electra"
+    family-names: Pauli
+    affiliation: "Department of Biology, University of Patras, Patras 26504, Greece"
+  - given-names: Spiros
+    family-names: Giannopoulos
+    affiliation: "Department of Biology, University of Patras, Patras 26504, Greece"
+  - given-names: Nefeli
+    family-names: "Zormpa Sfaellou"
+    affiliation: "Department of Biology, University of Patras, Patras 26504, Greece"
+  - given-names: Konstantinos
+    family-names: Anastasopoulos
+    affiliation: "Department of Computer Engineering and Informatics, University of Patras, Patras 26504, Greece"
+  - given-names: Andreas
+    family-names: Katsaros
+    affiliation: "Department of Computer Engineering and Informatics, University of Patras, Patras 26504, Greece"
+  - given-names: Grigoris
+    family-names: Tzortzakis
+    affiliation: "Department of Computer Engineering and Informatics, University of Patras, Patras 26504, Greece"
+  - given-names: Myrto
+    family-names: Xydi
+    affiliation: "Department of Biology, University of Patras, Patras 26504, Greece"
+  - given-names: Kariofyllis
+    family-names: Karamperis
+    affiliation: "Department of Pharmacy, University of Patras, Patras 26504, Greece"
+  - given-names: "George P."
+    family-names: Patrinos
+    affiliation: "Department of Pharmacy, University of Patras, Patras 26504, Greece"
+  - given-names: George
+    family-names: Lagoumintzis
+    affiliation: "Department of Pharmacy, University of Patras, Patras 26504, Greece"
+    email: glagoum@upatras.gr
