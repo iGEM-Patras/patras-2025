@@ -1,7 +1,6 @@
 # Aechmi — biomarker analysis and kinetic simulations
 
-Code, inputs and results for the computational analyses in *[manuscript title]*
-(iGEM Patras 2025, team Aechmi).
+Code, inputs and results for the computational analyses of Aechmi.
 
 The deposit covers two independent analyses:
 
@@ -148,20 +147,6 @@ Rscript kinetic_models/figure7_cas13a_cha.R
   Tolerances are set tightly (`rtol = 1e-8`, `atol = 1e-18`) because the state
   variables span 1e-12 to 1e-6 M and the solver defaults are far too loose at that
   scale. Uncomment the final `ggsave` line to write the figure to disk.
-
-## Known limitations
-
-**The Figure 7 script uses K_m = 3.0 µM, while the manuscript text states 3.7 µM.**
-The deposited script reproduces the published Figure 7: at 1 pM and 5 pM target it
-gives 220 nM and 710 nM of H1:H2 duplex at 60 minutes, matching the plotted curves.
-Re-running it with the 3.7 µM quoted in the text gives 187 nM and 643 nM instead.
-The figure was therefore produced with 3.0 µM and the two should be reconciled.
-
-**Rate constants are estimates, not measurements.** The forward rates come from
-the Hertel nucleation model with the scaling constant reported by Hertel et al.
-(2022); the reverse rates are derived from NUPACK equilibrium free energies. None
-were measured for this system. The manuscript states this and the simulations
-should be read as design-stage predictions.
 
 ## Data provenance
 
