@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23088241.svg)](https://doi.org/10.5281/zenodo.23088241)
+
 # Aechmi — biomarker analysis and kinetic simulations
 
 Code, inputs and results for the computational analyses of Aechmi.
