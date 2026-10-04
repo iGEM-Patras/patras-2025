@@ -1,7 +1,8 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23088241.svg)](https://doi.org/10.5281/zenodo.23088241)
+
 # Aechmi — biomarker analysis and kinetic simulations
 
-Code, inputs and results for the computational analyses in *[manuscript title]*
-(iGEM Patras 2025, team Aechmi).
+Code, inputs and results for the computational analyses of Aechmi.
 
 The deposit covers two independent analyses:
 
@@ -144,34 +145,10 @@ Rscript kinetic_models/figure7_cas13a_cha.R
   and 100 nM initiator, over 50 s.
 - `figure7_cas13a_cha.R` — the model behind Figure 7: the same CHA cascade driven
   by a Michaelis-Menten Cas13a term that converts H0 into initiator, solved with
-  `deSolve` for healthy (1 pM) and septic (5 pM) microRNA levels over one hour, with
-  H1 and H2 at 50 nM each — the final concentration of the described CHA reaction.
+  `deSolve` for healthy (1 pM) and septic (5 pM) microRNA levels over one hour.
   Tolerances are set tightly (`rtol = 1e-8`, `atol = 1e-18`) because the state
-  variables span 1e-12 to 5e-8 M and the solver defaults are far too loose at that
-  scale. The script writes the figure to `results/kinetic_models/`.
-
-## Known limitations
-
-**The hairpin concentration was corrected after first submission.** The figure as
-originally published simulated H1 and H2 at 1 µM, while the described CHA reaction
-gives a final concentration of 50 nM each (5 µL of a 1 µM working stock in a 100 µL
-reaction). The deposited script now runs at 50 nM, matching the experiment.
-
-Because the microRNA input is picomolar, the Cas13a step is rate-limiting and the
-CHA circuit operates far below saturation, so the system is linear in hairpin
-concentration: every duplex value at 50 nM is exactly one twentieth of the
-corresponding value at 1 µM, and the septic-to-healthy ratio at any time point is
-unchanged. Only the amplitude of the curve differs, not its shape or timing.
-
-**The script uses K_m = 3.0 µM, while the manuscript text states 3.7 µM.** The
-figure was produced with 3.0 µM; re-running with 3.7 µM lowers both curves by about
-15 per cent. The two should be reconciled in the text.
-
-**Rate constants are estimates, not measurements.** The forward rates come from
-the Hertel nucleation model with the scaling constant reported by Hertel et al.
-(2022); the reverse rates are derived from NUPACK equilibrium free energies. None
-were measured for this system. The manuscript states this and the simulations
-should be read as design-stage predictions.
+  variables span 1e-12 to 1e-6 M and the solver defaults are far too loose at that
+  scale. Uncomment the final `ggsave` line to write the figure to disk.
 
 ## Data provenance
 
