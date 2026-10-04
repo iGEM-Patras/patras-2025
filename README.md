@@ -144,18 +144,28 @@ Rscript kinetic_models/figure7_cas13a_cha.R
   and 100 nM initiator, over 50 s.
 - `figure7_cas13a_cha.R` — the model behind Figure 7: the same CHA cascade driven
   by a Michaelis-Menten Cas13a term that converts H0 into initiator, solved with
-  `deSolve` for healthy (1 pM) and septic (5 pM) microRNA levels over one hour.
+  `deSolve` for healthy (1 pM) and septic (5 pM) microRNA levels over one hour, with
+  H1 and H2 at 50 nM each — the final concentration of the described CHA reaction.
   Tolerances are set tightly (`rtol = 1e-8`, `atol = 1e-18`) because the state
-  variables span 1e-12 to 1e-6 M and the solver defaults are far too loose at that
-  scale. Uncomment the final `ggsave` line to write the figure to disk.
+  variables span 1e-12 to 5e-8 M and the solver defaults are far too loose at that
+  scale. The script writes the figure to `results/kinetic_models/`.
 
 ## Known limitations
 
-**The Figure 7 script uses K_m = 3.0 µM, while the manuscript text states 3.7 µM.**
-The deposited script reproduces the published Figure 7: at 1 pM and 5 pM target it
-gives 220 nM and 710 nM of H1:H2 duplex at 60 minutes, matching the plotted curves.
-Re-running it with the 3.7 µM quoted in the text gives 187 nM and 643 nM instead.
-The figure was therefore produced with 3.0 µM and the two should be reconciled.
+**The hairpin concentration was corrected after first submission.** The figure as
+originally published simulated H1 and H2 at 1 µM, while the described CHA reaction
+gives a final concentration of 50 nM each (5 µL of a 1 µM working stock in a 100 µL
+reaction). The deposited script now runs at 50 nM, matching the experiment.
+
+Because the microRNA input is picomolar, the Cas13a step is rate-limiting and the
+CHA circuit operates far below saturation, so the system is linear in hairpin
+concentration: every duplex value at 50 nM is exactly one twentieth of the
+corresponding value at 1 µM, and the septic-to-healthy ratio at any time point is
+unchanged. Only the amplitude of the curve differs, not its shape or timing.
+
+**The script uses K_m = 3.0 µM, while the manuscript text states 3.7 µM.** The
+figure was produced with 3.0 µM; re-running with 3.7 µM lowers both curves by about
+15 per cent. The two should be reconciled in the text.
 
 **Rate constants are estimates, not measurements.** The forward rates come from
 the Hertel nucleation model with the scaling constant reported by Hertel et al.

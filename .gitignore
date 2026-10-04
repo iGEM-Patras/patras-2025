@@ -9,3 +9,6 @@ data/preprocessed_data.xlsx
 
 __pycache__/
 *.pyc
+
+# R default device output when running via Rscript
+Rplots.pdf
