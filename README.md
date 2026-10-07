@@ -1,7 +1,6 @@
 # Aechmi — biomarker analysis and kinetic simulations
 
-Code, inputs and results for the computational analyses in *[manuscript title]*
-(iGEM Patras 2025, team Aechmi).
+Code, inputs and results for the computational analyses in Aechmi
 
 The deposit covers two independent analyses:
 
