@@ -1,8 +1,7 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23088241.svg)](https://doi.org/10.5281/zenodo.23088241)
-
 # Aechmi — biomarker analysis and kinetic simulations
 
-Code, inputs and results for the computational analyses of Aechmi.
+Code, inputs and results for the computational analyses in *[manuscript title]*
+(iGEM Patras 2025, team Aechmi).
 
 The deposit covers two independent analyses:
 
@@ -145,10 +144,52 @@ Rscript kinetic_models/figure7_cas13a_cha.R
   and 100 nM initiator, over 50 s.
 - `figure7_cas13a_cha.R` — the model behind Figure 7: the same CHA cascade driven
   by a Michaelis-Menten Cas13a term that converts H0 into initiator, solved with
-  `deSolve` for healthy (1 pM) and septic (5 pM) microRNA levels over one hour.
+  `deSolve` for healthy (1 pM) and septic (5 pM) microRNA levels over one hour, with
+  H1 and H2 at 50 nM each and H0 at 200 nM — the final concentrations of the described
+  CHA reaction. Running it also prints the duplex time course, the times at which the
+  two trajectories separate, and the saturation times.
   Tolerances are set tightly (`rtol = 1e-8`, `atol = 1e-18`) because the state
-  variables span 1e-12 to 1e-6 M and the solver defaults are far too loose at that
-  scale. Uncomment the final `ggsave` line to write the figure to disk.
+  variables span 1e-12 to 5e-8 M and the solver defaults are far too loose at that
+  scale. The script writes the figure to `results/kinetic_models/`.
+
+## Known limitations
+
+**The hairpin concentrations were corrected after first submission.** The figure as
+originally published simulated H1 and H2 at 1 µM and H0 at 500 nM. The protocol gives
+final concentrations of 50 nM for each of H1 and H2 (5 µL of a 1 µM working stock in a
+100 µL reaction) and 200 nM for H0 (4 µL of a 5 µM stock pipetted into the 20 µL Cas13a
+reaction, i.e. 20 pmol, all of which is then carried into the 100 µL CHA reaction). The
+deposited script now runs at those values.
+
+The two corrections behave differently. H1 and H2 enter the mass-action terms, and
+because the microRNA input is picomolar the Cas13a step is rate-limiting and the circuit
+stays far below saturation, so the model is close to linear in them: raising both from
+50 nM to 1 µM multiplies every duplex value by about 20 and leaves the septic-to-healthy
+ratios unchanged. H0 enters through the Michaelis-Menten term, so changing it alters the
+ratios as well as the amplitude — at 200 nM the septic-to-healthy ratio at 60 minutes is
+4.07, against 3.23 at the 500 nM previously used.
+
+**Two Cas13a parameters were traced back to their source and corrected.** Feng et al.
+(2024) report that each active Cas13a cleaved 330-400 reporter molecules in one hour;
+the midpoint, 365 per hour, gives k_cat = 0.1014 s⁻¹. The manuscript previously quoted
+310 molecules per hour (0.086 s⁻¹), which lies below the reported range. The same paper
+quotes K_M(Cas13a) ≈ 0.2-7 µM from the earlier literature, whose midpoint of about
+3.6-3.7 µM is the "intermediate literature value" the manuscript refers to; the script
+previously used 3.0 µM, which has no documented basis. Both now follow the source.
+
+The two corrections act in opposite directions and very nearly cancel: the
+septic-to-healthy ratio at 60 minutes moves from 4.07 to 4.09.
+
+Two caveats carry over from the source. Feng et al. quote the K_M range rather than
+measuring it, so the primary references behind it remain uninspected. And the turnover
+was measured on a linear reporter RNA at 23-32 °C, not on the structured H0 hairpin at
+37 °C, so the true turnover on this substrate may differ.
+
+**Rate constants are estimates, not measurements.** The forward rates come from
+the Hertel nucleation model with the scaling constant reported by Hertel et al.
+(2022); the reverse rates are derived from NUPACK equilibrium free energies. None
+were measured for this system. The manuscript states this and the simulations
+should be read as design-stage predictions.
 
 ## Data provenance
 

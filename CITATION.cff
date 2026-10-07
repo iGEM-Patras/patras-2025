@@ -8,9 +8,8 @@ abstract: >-
   cross-validation, and the kinetic models of the catalytic hairpin assembly
   circuit.
 type: software
-version: 1.0.1
-# Set this to the date you actually tag the release.
-date-released: 2026-10-04
+version: 1.0.2
+date-released: 2026-10-07
 license: MIT
 keywords:
   - sepsis
