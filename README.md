@@ -1,7 +1,6 @@
 # Aechmi — biomarker analysis and kinetic simulations
 
-Code, inputs and results for the computational analyses in *[manuscript title]*
-(iGEM Patras 2025, team Aechmi).
+Code, inputs and results for the computational analyses in "Design and Proof of Concept of a CRISPR/Cas13a-Catalytic Hairpin Assembly Framework for Circulating microRNA Detection in Sepsis".
 
 The deposit covers two independent analyses:
 
@@ -154,36 +153,30 @@ Rscript kinetic_models/figure7_cas13a_cha.R
 
 ## Known limitations
 
-**The hairpin concentrations were corrected after first submission.** The figure as
-originally published simulated H1 and H2 at 1 µM and H0 at 500 nM. The protocol gives
-final concentrations of 50 nM for each of H1 and H2 (5 µL of a 1 µM working stock in a
-100 µL reaction) and 200 nM for H0 (4 µL of a 5 µM stock pipetted into the 20 µL Cas13a
-reaction, i.e. 20 pmol, all of which is then carried into the 100 µL CHA reaction). The
-deposited script now runs at those values.
+**The simulation now follows the two-stage protocol.** The experiment is two
+sequential reactions: Cas13a with H0 and the target in 20 µL for one hour, with no
+hairpins present, then the whole 20 µL carried into a 100 µL reaction containing H1
+and H2 at 50 nM each for three hours. Earlier versions put everything in one pot from
+t = 0, which let the CHA cascade start an hour before it can in the experiment. The
+deposited script runs the two stages in sequence with the 5-fold transfer dilution in
+between, and the figure shows the whole 240-minute protocol clock.
 
-The two corrections behave differently. H1 and H2 enter the mass-action terms, and
-because the microRNA input is picomolar the Cas13a step is rate-limiting and the circuit
-stays far below saturation, so the model is close to linear in them: raising both from
-50 nM to 1 µM multiplies every duplex value by about 20 and leaves the septic-to-healthy
-ratios unchanged. H0 enters through the Michaelis-Menten term, so changing it alters the
-ratios as well as the amplitude — at 200 nM the septic-to-healthy ratio at 60 minutes is
-4.07, against 3.23 at the 500 nM previously used.
+**The forward rate constants were traced to their sources and corrected.** Both were
+previously given as 6.23 × 10⁶ M⁻¹s⁻¹ and both were attributed to the Hertel model.
+Neither is right. The Hertel nucleation model was applied only to reaction 1, using
+the 9-nt H1 toehold; the second reaction uses the strand-displacement plateau of
+Zhang & Winfree (2009), which applies because the H2 toehold is 7 nt. Both rates are
+3.00 × 10⁶ M⁻¹s⁻¹, which is what the reverse constants were derived against, so the
+model is now thermodynamically consistent.
 
-**Two Cas13a parameters were traced back to their source and corrected.** Feng et al.
-(2024) report that each active Cas13a cleaved 330-400 reporter molecules in one hour;
-the midpoint, 365 per hour, gives k_cat = 0.1014 s⁻¹. The manuscript previously quoted
-310 molecules per hour (0.086 s⁻¹), which lies below the reported range. The same paper
-quotes K_M(Cas13a) ≈ 0.2-7 µM from the earlier literature, whose midpoint of about
-3.6-3.7 µM is the "intermediate literature value" the manuscript refers to; the script
-previously used 3.0 µM, which has no documented basis. Both now follow the source.
-
-The two corrections act in opposite directions and very nearly cancel: the
-septic-to-healthy ratio at 60 minutes moves from 4.07 to 4.09.
-
-Two caveats carry over from the source. Feng et al. quote the K_M range rather than
-measuring it, so the primary references behind it remain uninspected. And the turnover
-was measured on a linear reporter RNA at 23-32 °C, not on the structured H0 hairpin at
-37 °C, so the true turnover on this substrate may differ.
+**The scale of the Hertel calculation is calibrated, not predicted.**
+`forward_rate_calculation.py` sets a target of 3 × 10⁶ M⁻¹s⁻¹ and solves for the
+scaling constant, so the rate it prints is the value supplied rather than an
+independent prediction. Hertel et al. do not report a numeric scaling constant in
+their main text; the fitted values in their Supplementary Table 3 are about
+19.4 × 10⁶ for n = 3, paired with γ ≈ 8.17. The γ = 4.1 used here comes instead from
+the stated assumption of 50% nucleation probability at the median free energy, so the
+two sets of parameters are not interchangeable.
 
 **Rate constants are estimates, not measurements.** The forward rates come from
 the Hertel nucleation model with the scaling constant reported by Hertel et al.

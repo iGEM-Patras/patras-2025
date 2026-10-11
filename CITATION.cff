@@ -5,11 +5,11 @@ abstract: >-
   Code, inputs and results reproducing the computational analyses of the
   CRISPR/Cas13a-CHA sepsis biosensor: selection of the hsa-miR-150-5p /
   hsa-miR-486-5p biomarker pair from GEO series GSE134358 with leak-free
-  cross-validation, and the kinetic models of the catalytic hairpin assembly
-  circuit.
+  cross-validation, and the kinetic model of the catalytic hairpin assembly
+  circuit, run as the two-stage experimental protocol.
 type: software
-version: 1.0.2
-date-released: 2026-10-07
+version: 1.0.5
+date-released: 2026-10-11
 license: MIT
 keywords:
   - sepsis
